@@ -4,7 +4,7 @@
   "main": "APP.js",
   "scripts": {
     "start": "node app.js",
-    "postinstall" : "gulp inital"
+    "postinstall": "gulp inital"
   },
   "repository": "https://github.com/AlexMachin1997/Portfolio.git",
   "license": "MIT",
