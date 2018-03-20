@@ -1,0 +1,46 @@
+// Styling for the navbar
+#mainNav {
+  background-color: $black;
+  .navbar-toggler {
+    font-size: 20px;
+    right: 0;
+    text-transform: uppercase;
+    color: $white;
+    border: 0;
+    @inlcude menu-transition
+  }
+
+  .navbar-brand {
+    color: $yellow; //Link Colour
+    font-family: 'Kaushan Script', cursive;
+    &.active,
+    &:active,
+    &:focus,
+    &:hover {
+      color: $yellow
+    }
+  }
+  .navbar-nav {
+    .nav-item {
+      .nav-link {
+        color: $white;
+        &.active,
+        &:hover {
+          color: $yellow;
+        }
+      }
+    }
+  }
+}
+
+@media(min-width:992px) {
+  #mainNav {
+    -webkit-transition: padding-top 0.3s, padding-bottom 0.3s;
+    -moz-transition: padding-top 0.3s, padding-bottom 0.3s;
+    transition: padding-top 0.3s, padding-bottom 0.3s;
+    border: none;
+    .navbar-brand {
+      font-size: 1.75em;
+    }
+  }
+}

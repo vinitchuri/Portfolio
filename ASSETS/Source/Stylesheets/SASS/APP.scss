@@ -9,7 +9,7 @@ Instructions:
 Import in the default bootstrap variables.
 Then override bootstrap default with project specific values.
  -------------------------------------------------------- */
-@import "../../Frameworks/Bootstrap-Framework/scss/functions"; //Must Go First Or Bootstrap Will Crash
+ @import "../../Frameworks/Bootstrap-Framework/scss/functions"; //Must Go First Or Bootstrap Will Crash
 @import "../../Frameworks/Bootstrap-Framework/scss/variables"; // Bootstrap Variables
 @import "1-tools/variables"; //Local Variables For Project
 
@@ -40,7 +40,7 @@ Core CSS
 @import "../../Frameworks/Bootstrap-Framework/scss/grid";
 //@import "../../Frameworks/Bootstrap-Framework/scss/tables";
 @import "../../Frameworks/Bootstrap-Framework/scss/forms";
-//@import "../../Frameworks/Bootstrap-Framework/scss/buttons";
+// @import "../../Frameworks/Bootstrap-Framework/scss/buttons";
 
 /* --------------------------------------------------------
 Components
@@ -69,7 +69,7 @@ Components w/ JavaScript
 -------------------------------------------------------- */
 
 // @import "../../Frameworks/Bootstrap-Framework/scss/modal";
-// @import "../../Frameworks/Bootstrap-Framework/scss/tooltip";
+@import "../../Frameworks/Bootstrap-Framework/scss/tooltip";
 // @import "../../Frameworks/Bootstrap-Framework/scss/popover";
 // @import "../../Frameworks/Bootstrap-Framework/scss/carousel";
 

@@ -1,0 +1,10 @@
+section {
+  padding: 90px 0;
+}
+
+//Below 768px The Following Properties Change
+@media(max-width:768px) {
+  section {
+    padding : 90px 0;
+  }
+}

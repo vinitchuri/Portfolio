@@ -1,0 +1,52 @@
+.header {
+  text-align: center; //Align Text
+
+  color: $white; //Text Colour
+
+  background-image: url("../Images/header-bg.jpg"); //Background Image For Header
+
+  @include background-image (); //Background Mixin
+
+  //Header Content
+  .header-content {
+    padding-top: 250px;
+    padding-bottom: 210px;
+
+  //Main Heading Nested Inside Of Header-Content
+
+    //H1
+    .main-heading {
+      font-size: 40px;
+      margin-bottom: 25px;
+      line-height: 22px;
+    }
+
+    //H2
+    .sub-heading {
+      font-size: 30px;
+      margin-bottom: 25px;
+    }
+
+  } //Closes Header Content
+} //Closers Header
+
+//Below 768px The Following Properties Change
+@media(max-width:768px) {
+      .header {
+        .header-content {
+          padding-top: 180px;
+          padding-bottom: 200px;
+
+          //H1
+          .main-heading {
+            font-size: 30pt;
+
+          //H2
+          .sub-heading {
+            font-size: 25pt;
+            margin-bottom: 50px;
+          }
+      }
+    }
+  }
+}

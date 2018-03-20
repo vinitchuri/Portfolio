@@ -1,0 +1,10 @@
+body {
+  font-family: 'Nunito', sans-serif;
+  position: relative;
+}
+
+@media(max-width:767px) {
+  body {
+    padding-top: 50px;
+  }
+}

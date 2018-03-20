@@ -75,12 +75,11 @@ gulp.task('browser-sync',
        Ui: false, //Enables Or Disables Browser Sync UI
       logPrefix: "Portfolio Website", //[BS] Now Is [Portfolio Website]
       logConnections: true, //Shows Connected Devices
-
+      ghostMode: false,
       watchOptions: {
         ignoreInitial: true,
-        ignored: '*.map'
+        ignored:[ '*js.map','*css.map']
       },
-
     });
   }
 );
@@ -120,6 +119,9 @@ gulp.task('nodemon',
 gulp.task("styles", function(){
   return gulp.src("ASSETS/Source/Stylesheets/SASS/APP.scss")
 
+  //Source Map Initalisation
+  .pipe(sourceMaps.init())
+
   //Error Handling - Thanks To Sandro Pasquali (https://gist.github.com/floatdrop/8269868)
   .pipe(plumber({
 
@@ -134,18 +136,19 @@ gulp.task("styles", function(){
       })(err);
 
       //Stops Here Upon An Error Message Appearing, Once The Document Is Resaved It Will Rerun
-      this.emit('end');
+      return this.emit('end');
     }
   }))
 
   //Passes In An Object Into The SASS Plugin To Compress The CSS Output
   .pipe(sass({outputStyle: 'compressed'}))
 
+  //Writes The Source Map
+  .pipe(sourceMaps.write("../Maps/CSS"))
+
   //Output Location For File
   .pipe(gulp.dest("ASSETS/Build/CSS/"))
 
-  //Writes The Source Map
-  .pipe(sourceMaps.write("../Maps/CSS"))
 
   //Allows CSS To Be Injected Into Browser Syncs Session
   .pipe(browserSync.reload({stream : true}));
@@ -178,7 +181,7 @@ gulp.task("routes", function(){
       })(err);
 
       //Stops Here Upon An Error Message Appearing, Once The Document Is Resaved It Will Rerun
-      this.emit('end');
+      return this.emit('end');
     }
   }))
 
@@ -213,7 +216,7 @@ gulp.task("image", function(){
       })(err);
 
       //Stops Here Upon An Error Message Appearing, Once The Document Is Resaved It Will Rerun
-      this.emit('end');
+      return this.emit('end');
     }
   }))
 
@@ -271,7 +274,7 @@ gulp.task("bootstrap-scripts", function(){
       })(err);
 
       //Stops Here Upon An Error Message Appearing, Once The Document Is Resaved It Will Rerun
-      this.emit('end');
+      return this.emit('end');
     }
   }))
 
@@ -317,7 +320,7 @@ gulp.task("customJS", function(){
       })(err);
 
       //Stops Here Upon An Error Message Appearing, Once The Document Is Resaved It Will Rerun
-      this.emit('end');
+      return this.emit('end');
     }
   }))
 
@@ -356,7 +359,7 @@ gulp.task("ejs", ["ejs-partials"], function(){
       })(err);
 
       //Stops Here Upon An Error Message Appearing, Once The Document Is Resaved It Will Rerun
-      this.emit('end');
+      return this.emit('end');
     }
   }))
 
@@ -389,7 +392,7 @@ gulp.task("ejs-partials", function(){
       })(err);
 
       //Stops Here Upon An Error Message Appearing, Once The Document Is Resaved It Will Rerun
-      this.emit('end');
+      return this.emit('end');
     }
   }))
 

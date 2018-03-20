@@ -1,0 +1,9 @@
+textarea {
+  height: 156px;
+}
+
+@media(max-width:767px) {
+  textarea {
+    height: 100px;
+  }
+}
